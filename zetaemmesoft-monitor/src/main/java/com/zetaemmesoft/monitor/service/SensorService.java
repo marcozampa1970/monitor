@@ -107,8 +107,8 @@ public class SensorService {
 
     public SensorBean setSensor(SensorBean bean) {
 
-	logger.debug("sensorId: " + bean.getId() + " - " + bean.getType() + " - value: " + bean.getValue());
-
+	logger.debug("sensorId: " + bean.getId() + " - value: " + bean.getValue());
+	
 	if (bean.getNode() != null && bean.getNode().equals("")) {
 	    bean.setNode(null);
 	}
@@ -123,6 +123,10 @@ public class SensorService {
 	    sensorRepository.update(dto);
 	} else {
 	    dto = new Sensor();
+	    
+	    // CREATE NEW SENSOR	    
+	    // ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC
+	    
 	    dto.setId(bean.getId());
 	    dto.setValue(bean.getValue());
 	    dto.setTime(new java.sql.Timestamp(time.getTime()));

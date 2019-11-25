@@ -15,7 +15,7 @@ INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(
 
 INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(5, 'ESP_18BE43', 0.0, 'V', 4, now(), 'Room 1', null);
 
-INSERT INTO SWITCH (ID, NODE, VALUE, UNIT, "ITEM_TYPE", "TIME", NAME, TOPIC) VALUES(1, 'ESP8266_1', 0, 'X', 3, now(), 'ROOM 1', 'thing_lamp/light_switch');
+INSERT INTO SWITCH (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(1, 'ESP8266_1', 0, 'X', 3, now(), 'ROOM 1', 'thing_lamp/light_switch');
 
 -- *************************************
 

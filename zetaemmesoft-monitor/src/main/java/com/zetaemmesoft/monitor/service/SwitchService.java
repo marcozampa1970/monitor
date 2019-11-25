@@ -107,7 +107,7 @@ public class SwitchService {
 
     public SwitchBean setSwitch(SwitchBean bean) {
 
-	logger.debug("switchId: " + bean.getId() + " - value: " + bean.getValue() + " - node: " + bean.getNode());
+	logger.debug("switchId: " + bean.getId() + " - value: " + bean.getValue());	
 
 	if (bean.getNode() != null && bean.getNode().equals("")) {
 	    bean.setNode(null);
@@ -123,6 +123,10 @@ public class SwitchService {
 	    switchRepository.update(dto);
 	} else {
 	    dto = new Switch();
+	    
+	    // CREATE NEW SWITCH
+	    // ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC
+	    
 	    dto.setId(bean.getId());
 	    dto.setValue((bean.getValue() > 0) ? 1 : 0);
 	    dto.setTime(new java.sql.Timestamp(time.getTime()));
