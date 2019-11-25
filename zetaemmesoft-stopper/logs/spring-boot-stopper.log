@@ -1,0 +1,7 @@
+2019-03-29 17:14:54 INFO  StopSpringBootService:21 - Stopping Spring Boot application...
+2019-03-29 17:14:54 INFO  StopSpringBootService:24 - jmxPort: 1617
+2019-03-29 17:14:54 INFO  StopSpringBootService:27 - jmxName: org.springframework.boot:type=Admin,name=SpringApplication
+2019-03-29 17:14:58 INFO  SpringApplicationAdminClient:54 - url: service:jmx:rmi:///jndi/rmi://127.0.0.1:1617/jmxrmi
+2019-03-29 17:14:58 INFO  SpringApplicationAdminClient:58 - connect
+2019-03-29 17:16:47 ERROR StopSpringBootService:42 - Exception thrown during connector close: java.rmi.ConnectException: Connection refused to host: 192.168.3.43; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
