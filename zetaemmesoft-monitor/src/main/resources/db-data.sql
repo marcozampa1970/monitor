@@ -7,13 +7,19 @@ INSERT INTO ITEM_TYPE (ID, NAME) VALUES (4, 'Voltage');
 
 -- UTF-8 DEGREE CELSIUS' (0x2103)
 
-INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(1, 'ESP_18BE43', 0.0, char(0x2103), 1, now(), 'Room 1', 'thing_dht22/temperature_sensor/room1');
-INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(2, 'ESP_18BE43', 0.0, '%', 2, now(), 'Room 1', 'thing_dht22/humidity_sensor/room1');
+-- SENSOR ITEMS
 
-INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(3, 'ESP_4F19C4', 0.0, char(0x2103), 1, now(), 'Room 2', 'thing_dht22/temperature_sensor/room2');
-INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(4, 'ESP_4F19C4', 0.0, '%', 2, now(), 'Room 2', 'thing_dht22/humidity_sensor/room2');
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(1, 'ESP_18BE43', 0.0, char(0x2103), 1, now(), 'Hallway', 'thing_dht22/temperature_sensor/room1');
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(2, 'ESP_18BE43', 0.0, '%', 2, now(), 'Hallway', 'thing_dht22/humidity_sensor/room1');
 
-INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(5, 'ESP_18BE43', 0.0, 'V', 4, now(), 'Room 1', null);
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(3, 'ESP_4F19C4', 0.0, char(0x2103), 1, now(), 'Bedroom', 'thing_dht22/temperature_sensor/room2');
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(4, 'ESP_4F19C4', 0.0, '%', 2, now(), 'Bedroom', 'thing_dht22/humidity_sensor/room2');
+
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(5, 'ESP_18BE43', 0.0, 'V', 4, now(), 'Hallway', null);
+
+INSERT INTO SENSOR (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(6, 'ESP_XXYYZZ', 0.0, 'V', 4, now(), 'kitchen', null);
+
+--  SWITCH ITEMS
 
 INSERT INTO SWITCH (ID, NODE, VALUE, UNIT, ITEM_TYPE, TIME, NAME, TOPIC) VALUES(1, 'ESP8266_1', 0, 'X', 3, now(), 'ROOM 1', 'thing_lamp/light_switch');
 

@@ -18,7 +18,6 @@ import com.zetaemmesoft.monitor.integration.dto.Switch;
 import com.zetaemmesoft.monitor.integration.mqtt.MqttManager;
 import com.zetaemmesoft.monitor.integration.repository.ItemTypeRepository;
 import com.zetaemmesoft.monitor.integration.repository.SwitchRepository;
-import com.zetaemmesoft.monitor.utils.Constants;
 
 @Service
 public class SwitchService {
@@ -66,7 +65,7 @@ public class SwitchService {
 	    bean.setValue(dto.getValue());
 
 	    if (dto.getTime() != null) {
-		bean.setTime(new Date(dto.getTime().getTime()));
+		bean.setDateTime(new Date(dto.getTime().getTime()));
 	    }
 
 	    bean.setUnit(dto.getUnit());
@@ -90,7 +89,7 @@ public class SwitchService {
 	    bean.setValue(dto.getValue());
 
 	    if (dto.getTime() != null) {
-		bean.setTime(new Date(dto.getTime().getTime()));
+		bean.setDateTime(new Date(dto.getTime().getTime()));
 	    }
 
 	    bean.setUnit(dto.getUnit());
@@ -141,7 +140,7 @@ public class SwitchService {
 	    switchRepository.insert(dto);
 	}
 
-	bean.setTime(time);
+	bean.setDateTime(time);
 	bean.setValue(dto.getValue());
 
 	if ("true".equals(mqttEnabled)) {

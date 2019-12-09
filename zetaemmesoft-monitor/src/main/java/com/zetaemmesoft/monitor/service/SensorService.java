@@ -1,7 +1,6 @@
 package com.zetaemmesoft.monitor.service;
 
 import java.util.ArrayList;
-
 import java.util.Date;
 import java.util.List;
 
@@ -14,12 +13,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.zetaemmesoft.monitor.bean.SensorBean;
-import com.zetaemmesoft.monitor.integration.dto.ItemType;
 import com.zetaemmesoft.monitor.integration.dto.Sensor;
 import com.zetaemmesoft.monitor.integration.mqtt.MqttManager;
 import com.zetaemmesoft.monitor.integration.repository.ItemTypeRepository;
 import com.zetaemmesoft.monitor.integration.repository.SensorRepository;
-import com.zetaemmesoft.monitor.utils.Constants;
 
 @Service
 public class SensorService {
@@ -65,7 +62,7 @@ public class SensorService {
 	    bean.setValue(dto.getValue());
 
 	    if (dto.getTime() != null) {
-		bean.setTime(new Date(dto.getTime().getTime()));
+		bean.setDateTime(new Date(dto.getTime().getTime()));
 	    }
 
 	    bean.setUnit(dto.getUnit());
@@ -90,7 +87,7 @@ public class SensorService {
 	    bean.setValue(dto.getValue());
 
 	    if (dto.getTime() != null) {
-		bean.setTime(new Date(dto.getTime().getTime()));
+		bean.setDateTime(new Date(dto.getTime().getTime()));
 	    }
 
 	    bean.setUnit(dto.getUnit());
@@ -141,7 +138,7 @@ public class SensorService {
 	    sensorRepository.insert(dto);
 	}
 
-	bean.setTime(time);
+	bean.setDateTime(time);
 	bean.setValue(dto.getValue());
 
 	if ("true".equals(mqttEnabled)) {
