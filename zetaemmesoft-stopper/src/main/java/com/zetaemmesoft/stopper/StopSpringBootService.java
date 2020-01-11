@@ -8,7 +8,6 @@ import javax.management.remote.JMXConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class StopSpringBootService {
     private static final Logger logger = LoggerFactory.getLogger(StopSpringBootService.class);
 

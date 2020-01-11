@@ -11,13 +11,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication()
 public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     private static org.h2.tools.Server server;
-    
+
     @Value("${jdbc.port}")
     private String jdbcPort;
 
