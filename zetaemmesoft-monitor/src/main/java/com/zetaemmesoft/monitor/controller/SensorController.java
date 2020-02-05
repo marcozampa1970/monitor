@@ -18,14 +18,13 @@ import com.zetaemmesoft.monitor.service.SensorService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Authorization;
 
-
 @RestController
 @RequestMapping("/rest/sensor")
 public class SensorController {
 
     @Autowired
     SensorService sensorService;
-   
+
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     @ApiOperation(value = "Get sensor list", authorizations = { @Authorization(value = "Bearer") })
@@ -33,18 +32,26 @@ public class SensorController {
 	List<SensorBean> beans = sensorService.getSensors();
 	return new ResponseEntity<List<SensorBean>>(beans, HttpStatus.OK);
     }
-      
+
     @RequestMapping(value = "/{sensorId}/get", method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     @ApiOperation(value = "Get sensor", authorizations = { @Authorization(value = "Bearer") })
     public ResponseEntity<SensorBean> getSensor(@PathVariable("sensorId") Integer sensorId) {
 	return new ResponseEntity<SensorBean>(sensorService.getSensor(sensorId), HttpStatus.OK);
     }
-      
+
     @RequestMapping(value = "/set", method = RequestMethod.POST)
     @PreAuthorize("hasAuthority('ADMIN_USER')")
     @ApiOperation(value = "Set sensor", authorizations = { @Authorization(value = "Bearer") })
     public ResponseEntity<SensorBean> setSensor(@RequestBody SensorBean bean) {
+
+	if ("Voltage".equals(bean.getType())) {
+	    SensorBean s = sensorService.getSensor(bean.getId());
+	    if (bean.getValue() < 3.6) {
+		bean.setValue(s.getValue());
+	    }
+	}
+
 	SensorBean rtn = sensorService.setSensor(bean);
 	return new ResponseEntity<SensorBean>(rtn, HttpStatus.OK);
     }
