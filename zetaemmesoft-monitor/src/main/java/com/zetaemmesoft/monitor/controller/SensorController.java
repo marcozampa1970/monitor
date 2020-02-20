@@ -46,9 +46,11 @@ public class SensorController {
     public ResponseEntity<SensorBean> setSensor(@RequestBody SensorBean bean) {
 
 	if ("Voltage".equals(bean.getType())) {
-	    SensorBean s = sensorService.getSensor(bean.getId());
 	    if (bean.getValue() < 3.6) {
-		bean.setValue(s.getValue());
+		SensorBean s = sensorService.getSensor(bean.getId());
+		if (s != null) {
+		    bean.setValue(s.getValue());
+		}
 	    }
 	}
 

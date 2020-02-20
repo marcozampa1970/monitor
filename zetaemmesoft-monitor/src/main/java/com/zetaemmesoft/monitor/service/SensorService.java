@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import com.zetaemmesoft.monitor.bean.SensorBean;
 import com.zetaemmesoft.monitor.integration.dto.Sensor;
-import com.zetaemmesoft.monitor.integration.mqtt.MqttManager;
 import com.zetaemmesoft.monitor.integration.repository.ItemTypeRepository;
 import com.zetaemmesoft.monitor.integration.repository.SensorRepository;
 
@@ -23,8 +22,8 @@ public class SensorService {
 
     private static final Logger logger = LoggerFactory.getLogger(SensorService.class);
 
-    @Value("${mqtt.enabled}")
-    private String mqttEnabled;
+    //@Value("${mqtt.enabled}")
+    //private String mqttEnabled;
 
     @Autowired
     private SensorRepository sensorRepository;
@@ -32,21 +31,25 @@ public class SensorService {
     @Autowired
     private ItemTypeRepository itemTypeRepository;
 
-    @Autowired
-    private MqttManager mqttClient;
+    //@Autowired
+    //private MqttManager mqttClient;
 
     @PostConstruct
     public void init() {
+	
+	/*
 	if ("true".equals(mqttEnabled)) {
-	    List<SensorBean> sensors = getSensors();
+	    List<SensorBean> sensors = getSensors();	    	   
 	    for (SensorBean bean : sensors) {
+	
 		if (bean.getTopic() != null) {
 		    mqttClient.send(bean.getTopic(), "sensor_" + String.valueOf(bean.getId()), String.valueOf(bean.getValue()), 1, false);
 		} else {
 		    logger.warn("Unqualified topic!");
-		}
+		}		
 	    }
-	}
+	}*/
+	
     }
 
     public SensorBean getSensor(Integer sensorId) {
@@ -141,13 +144,14 @@ public class SensorService {
 	bean.setDateTime(time);
 	bean.setValue(dto.getValue());
 
+	/*
 	if ("true".equals(mqttEnabled)) {
 	    if (bean.getTopic() != null) {
 		mqttClient.send(dto.getTopic(), "sensor_" + String.valueOf(dto.getId()), String.valueOf(dto.getValue()), 1, false);
 	    } else {
 		logger.warn("Unqualified topic!");
 	    }
-	}
+	}*/
 
 	return bean;
     }

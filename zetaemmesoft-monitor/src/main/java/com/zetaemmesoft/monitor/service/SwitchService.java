@@ -1,7 +1,6 @@
 package com.zetaemmesoft.monitor.service;
 
 import java.util.ArrayList;
-
 import java.util.Date;
 import java.util.List;
 
@@ -10,12 +9,10 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.zetaemmesoft.monitor.bean.SwitchBean;
 import com.zetaemmesoft.monitor.integration.dto.Switch;
-import com.zetaemmesoft.monitor.integration.mqtt.MqttManager;
 import com.zetaemmesoft.monitor.integration.repository.ItemTypeRepository;
 import com.zetaemmesoft.monitor.integration.repository.SwitchRepository;
 
@@ -24,8 +21,8 @@ public class SwitchService {
 
     private static final Logger logger = LoggerFactory.getLogger(SwitchService.class);
 
-    @Value("${mqtt.enabled}")
-    private String mqttEnabled;
+    //@Value("${mqtt.enabled}")
+    //private String mqttEnabled;
 
     @Autowired
     private SwitchRepository switchRepository;
@@ -33,11 +30,13 @@ public class SwitchService {
     @Autowired
     private ItemTypeRepository itemTypeRepository;
 
-    @Autowired
-    private MqttManager mqttClient;
+    //@Autowired
+    //private MqttManager mqttClient;
 
     @PostConstruct
     public void init() {
+	
+	/*
 	if ("true".equals(mqttEnabled)) {
 	    List<SwitchBean> switches = getSwitches();
 	    for (SwitchBean bean : switches) {
@@ -48,7 +47,9 @@ public class SwitchService {
 		    logger.warn("Unqualified topic!");
 		}
 	    }
-	}
+	}*/
+	
+	
     }
 
     public SwitchBean getSwitch(Integer switchId) {
@@ -143,13 +144,14 @@ public class SwitchService {
 	bean.setDateTime(time);
 	bean.setValue(dto.getValue());
 
+	/*
 	if ("true".equals(mqttEnabled)) {
 	    if (dto.getTopic() != null) {
 		mqttClient.send(dto.getTopic(), "switch_" + String.valueOf(dto.getId()), String.valueOf(dto.getValue()), 1, false);
 	    } else {
 		logger.warn("Unqualified topic!");
 	    }
-	}
+	}*/
 
 	return bean;
     }
