@@ -25,9 +25,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
+	// for https://localhost/monitor/h2-console frame visibility!!
+	http.headers().frameOptions().sameOrigin();
+	
 	http.csrf().disable().httpBasic().disable().anonymous().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().requestMatchers().and().authorizeRequests()
 		.antMatchers("/services/rest/**").authenticated();
-
+	
 	http.addFilterBefore(filter(), UsernamePasswordAuthenticationFilter.class);
     }
 

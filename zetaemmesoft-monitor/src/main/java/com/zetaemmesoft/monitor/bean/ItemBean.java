@@ -15,5 +15,18 @@ public abstract class ItemBean implements Serializable {
     private String type;
     private String node;         
     private Date dateTime;
+    
+    /*
+    id: number;
+    name: string;
+    type: string;
+    node: string;
+    dateTime: Date;    
+    */
+
+
+
+
+
 }
 

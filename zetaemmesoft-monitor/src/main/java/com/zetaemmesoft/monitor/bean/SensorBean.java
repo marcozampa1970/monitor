@@ -12,9 +12,11 @@ public class SensorBean extends ItemBean {
 
     private static final long serialVersionUID = -4418696677549014511L;
 
-    private String unit;
-    private String topic;
-    
     private Float value;
-
+    private String unit;    
+    
+    /*
+    value: number;
+    unit: string;
+    */
 }

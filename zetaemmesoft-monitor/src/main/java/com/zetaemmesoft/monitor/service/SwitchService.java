@@ -30,25 +30,8 @@ public class SwitchService {
     @Autowired
     private ItemTypeRepository itemTypeRepository;
 
-    //@Autowired
-    //private MqttManager mqttClient;
-
     @PostConstruct
     public void init() {
-	
-	/*
-	if ("true".equals(mqttEnabled)) {
-	    List<SwitchBean> switches = getSwitches();
-	    for (SwitchBean bean : switches) {
-		if (bean.getTopic() != null) {
-		    mqttClient.subscribe(bean.getTopic(), "switch_" + String.valueOf(bean.getId()));
-		    mqttClient.send(bean.getTopic(), "switch_" + String.valueOf(bean.getId()), (bean.getValue() == 1.0) ? "1" : "0", 1, false);
-		} else {
-		    logger.warn("Unqualified topic!");
-		}
-	    }
-	}*/
-	
 	
     }
 
@@ -144,16 +127,6 @@ public class SwitchService {
 	bean.setDateTime(time);
 	bean.setValue(dto.getValue());
 
-	/*
-	if ("true".equals(mqttEnabled)) {
-	    if (dto.getTopic() != null) {
-		mqttClient.send(dto.getTopic(), "switch_" + String.valueOf(dto.getId()), String.valueOf(dto.getValue()), 1, false);
-	    } else {
-		logger.warn("Unqualified topic!");
-	    }
-	}*/
-
 	return bean;
     }
-
 }

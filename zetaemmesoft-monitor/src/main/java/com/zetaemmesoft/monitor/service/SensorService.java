@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.zetaemmesoft.monitor.bean.SensorBean;
@@ -37,19 +36,6 @@ public class SensorService {
     @PostConstruct
     public void init() {
 	
-	/*
-	if ("true".equals(mqttEnabled)) {
-	    List<SensorBean> sensors = getSensors();	    	   
-	    for (SensorBean bean : sensors) {
-	
-		if (bean.getTopic() != null) {
-		    mqttClient.send(bean.getTopic(), "sensor_" + String.valueOf(bean.getId()), String.valueOf(bean.getValue()), 1, false);
-		} else {
-		    logger.warn("Unqualified topic!");
-		}		
-	    }
-	}*/
-	
     }
 
     public SensorBean getSensor(Integer sensorId) {
@@ -72,7 +58,6 @@ public class SensorService {
 	    bean.setType(itemTypeRepository.find(dto.getType()).getName());
 	    bean.setName(dto.getName());
 	    bean.setNode(dto.getNode());
-	    bean.setTopic(dto.getTopic());
 	}
 
 	return bean;
@@ -97,7 +82,6 @@ public class SensorService {
 	    bean.setType(itemTypeRepository.find(dto.getType()).getName());
 	    bean.setName(dto.getName());
 	    bean.setNode(dto.getNode());
-	    bean.setTopic(dto.getTopic());
 
 	    beans.add(bean);
 	}
