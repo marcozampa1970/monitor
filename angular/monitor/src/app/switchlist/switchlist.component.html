@@ -1,0 +1,9 @@
+<div>
+    <div *ngIf="errorMsg != null" class="on-center font-error">
+        {{errorMsg}}
+    </div>
+    <div class="on-right-side">
+        <ui-switch size="small" (change)="onChange($event)" [checked]=refresh [(ngModel)]="refresh"></ui-switch>
+    </div>
+    <app-switchitem *ngFor="let switch of switches" [switch]="switch"></app-switchitem>
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <div *ngIf="errorMsg != null" class="on-center font-error">
+        {{errorMsg}}
+    </div>
+    <div class="on-right-side">
+        <ui-switch size="small" (change)="onChange($event)" [checked]=refresh></ui-switch>
+    </div>
+    <div class="row-margin">
+        <app-sensorrow *ngFor="let sensorNode of sensorNodes" [sensorNode]="sensorNode"></app-sensorrow>
+    </div>    
+</div>

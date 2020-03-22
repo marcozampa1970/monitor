@@ -1,0 +1,56 @@
+	<table>
+		<tr>
+			<td width="50%">
+				<div class="item-sensor-img-container"><img src="assets/images/{{sensor.type}}.jpg"></div>
+			</td>
+			<td>
+				<div>{{sensor.type}}</div>
+			</td>
+		</tr>
+		<tr *ngIf="sensor.id > 0">
+			<td>
+				<div style="text-align: right;">
+					<b>{{sensor.value}}</b>
+				</div>
+			</td>
+			<td>
+				<div>
+					({{sensor.unit}})
+				</div>
+			</td>
+		</tr>
+		<tr *ngIf="sensor.id == 0">
+			<td></td>
+			<td>
+				<div>{{sensor.name}}</div>
+			</td>
+		</tr>
+		<tr *ngIf="sensor.id == 0">
+			<td></td>
+			<td>
+				<div>{{sensor.node}}</div>
+			</td>
+		</tr>
+		<tr *ngIf="sensor.id > 0">
+			<td></td>
+			<td>
+				<div class="time-style">{{timeSide}}</div>
+			</td>
+		</tr>		
+		<tr *ngIf="sensor.id > 0">
+			<td></td>
+			<td>
+				<div class="date-style">{{dateSide}}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>			
+		<tr *ngIf="sensor.id > 0">
+			<td></td>
+			<td>
+				<div class="id-style">ID {{sensor.id}}</div>
+			</td>
+		</tr>		
+	</table>

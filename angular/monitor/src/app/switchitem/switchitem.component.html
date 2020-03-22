@@ -1,0 +1,33 @@
+<div class="item-switch font-item-style">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2">
+			<div class="item-switch-img-container" [ngSwitch]="switchValue">
+				<span *ngSwitchCase="true">
+					<img src="assets/images/{{switch.type}}-on.jpg">
+				</span>
+				<span *ngSwitchCase="false">
+					<img src="assets/images/{{switch.type}}-off.jpg">
+				</span>
+			</div>
+		</div>
+		<div class="col-sm-2">{{switch.type}}</div>
+		<div class="col-sm-2">{{switch.name}}</div>
+		<div class="col-sm-2">
+			<ui-switch size="small" (change)="onChange($event)" [checked]=switchValue></ui-switch>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2">{{switch.id}}</div>
+		<div class="col-sm-2">
+			<div>{{switch.node}}</div>
+		</div>
+		<div class="col-sm-2">
+			<div>{{switch.dateTime}}</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>

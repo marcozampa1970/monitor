@@ -1,0 +1,47 @@
+<div class="item-sensor font-item-style" [ngSwitch]="isHeader">
+
+	<span *ngSwitchCase="false">
+
+	</span>
+
+	<div class="rTable">
+		<div class="rTableRow">
+			<div *ngIf="sensor.type != ''" class="rTableHead">
+				<div class="item-sensor-img-container"><img src="assets/images/{{sensor.type}}.jpg"></div>
+			</div>
+			<div class="rTableHead type-item-style" style="text-align: left;">{{sensor.type}}</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id == 0">
+			<div class="rTableCell"></div>
+			<div class="rTableCell name-item-style" style="text-align: right;">{{sensor.name}}</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id == 0">
+			<div class="rTableCell"></div>
+			<div class="rTableCell" style="text-align: right;">{{sensor.node}}</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id == 0">
+			<div class="rTableCell"></div>
+			<div class="rTableCell datetime-item-style" style="text-align: right;">{{dateSide}}</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id > 0">
+			<div class="rTableCell value-item-style" style="text-align: right;"><b>{{sensor.value}}</b></div>
+			<div class="rTableCell value-item-style">({{sensor.unit}})</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id > 0">
+			<div class="rTableCell"></div>
+			<div class="rTableCell datetime-item-style" style="text-align: right;">{{timeSide}}</div>
+		</div>
+
+		<div class="rTableRow" *ngIf="sensor.id > 0">
+			<div class="rTableCell"></div>
+			<div class="rTableCell id-item-style" style="text-align: right;">ID: {{sensor.id}}</div>
+		</div>
+
+	</div>
+
+</div>

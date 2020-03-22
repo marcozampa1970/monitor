@@ -1,0 +1,309 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './app/vendor/bootstrap-4.3.1/bootstrap.min.css';
+
+
+body {
+  /*background: #C0C0C0;*/
+
+}
+
+div.active {
+  background: #DCDCDC;
+}
+
+.item-sensor {
+  height: 13em;
+  width: 14em;
+  background: #DCDCDC;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;   
+  padding: 0.5em;
+}
+
+.row-node-style {  
+  border-style: solid;
+  border-width: 0.1em;
+  margin: 0.4em;
+  border-color: #DCDCDC;
+  justify-content: left;
+}
+
+.row-margin {
+  margin-left: 1%; 
+  margin-right: 1%;
+}
+
+.item-sensor-img-container {
+  width: 2.5em;
+  height: 2.5em;
+  margin-bottom: 0.5em;  
+}
+
+.item-sensor-img-container img {
+  height: 100%;
+  width: 100%;
+}
+
+/* °°°°°°°°°°°°°° */
+
+.item-switch {
+  padding: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 5em;
+  margin-right: 5em;      
+  background: #DCDCDC;
+  text-align: center;
+}
+
+.item-switch-img-container {
+  width: 3em;
+  height: 3em;
+}
+
+.item-switch-img-container img {
+  height: 80%;
+  width: 80%;
+}
+
+.item-side {
+  background: #C0C0C0;
+}
+
+div.parent-login {
+  padding-top: 5%;
+}
+
+div.parent-image {
+  text-align: center;
+  line-height: 50em;
+}
+
+div.parent-image img {
+  vertical-align: middle;
+}
+
+.menu-align-center {
+  text-align: center;
+}
+
+.menu-align-right {
+  text-align: right;
+}
+
+.link-black-color {
+  color: black;
+}
+
+.menu-item-margin {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.on-right-side {
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.on-center {
+  display: flex; 
+  justify-content: center;
+}
+
+.font-error {
+  color: red;
+}
+
+/* tables */
+
+.rTable {
+  display: block;
+  width: 100%;
+}
+
+.rTableHeading, .rTableBody, .rTableFoot, .rTableRow{
+  clear: both;
+}
+
+.rTableHead, .rTableFoot{
+  background-color: #DDD;
+  font-weight: normal;
+}
+
+.rTableHead {
+  float: left;
+  overflow: hidden;
+  padding: 0.15em 1.8%;
+  margin-bottom: 1.0em;
+  width: 50%;
+}
+
+.rTableCell {
+  float: left;
+  overflow: hidden;
+  padding: 0.15em 1.8%;
+  width: 50%;
+}
+
+.rTable:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+/* Small devices (under 575px) */
+
+@media only screen and (max-width: 575px) {
+
+  div.font-item-style {
+    font-size: 0.6em;
+  }
+
+  div.name-item-style {
+    font-size: 1.0em;
+    font-weight: bold;
+  }
+
+  div.type-item-style {
+    font-size: 0.9em;
+  }
+
+  div.value-item-style {
+    font-size: 1.5em;
+  }  
+
+  div.datetime-item-style {
+    font-size: 0.6em;
+  }
+
+  div.id-item-style {
+    font-size: 0.4em;
+  }  
+}
+
+/* Small devices (portrait tablets and large phones, 576px and up) */
+
+@media only screen and (min-width: 576px) {
+
+  div.font-item-style {
+    font-size: 0.7em;
+  }
+
+  div.name-item-style {
+    font-size: 0.9em;
+    font-weight: bold;    
+  }
+
+  div.type-item-style {
+    font-size: 0.7em;
+  }
+
+  div.value-item-style {
+    font-size: 1.6em;
+  } 
+
+  div.datetime-item-style {
+    font-size: 0.7em;
+  }
+
+  div.id-item-style {
+    font-size: 0.5em;
+  } 
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+
+  div.font-item-style {
+    font-size: 0.8em;
+  }
+
+  div.name-item-style {
+    font-size: 1.0em;
+    font-weight: bold;    
+  }
+
+  div.type-item-style {
+    font-size: 0.8em;
+  }
+
+  div.value-item-style {
+    font-size: 1.7em;
+  } 
+
+  div.datetime-item-style {
+    font-size: 0.8em;
+  }
+
+  div.id-item-style {
+    font-size: 0.6em;
+  } 
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+
+  div.font-item-style {
+    font-size: 0.9em;
+  }
+
+  div.name-item-style {
+    font-size: 1.1em;
+    font-weight: bold;    
+  }
+
+  div.type-item-style {
+    font-size: 0.9em;
+  }
+
+  div.value-item-style {
+    font-size: 1.8em;
+  }    
+
+  div.datetime-item-style {
+    font-size: 0.9em;
+  }
+
+  div.id-item-style {
+    font-size: 0.7em;
+  } 
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+
+  div.font-item-style {
+    font-size: 1.0em;
+  }
+
+  div.name-item-style {
+    font-size: 1.2em;
+    font-weight: bold;        
+  }
+
+  div.type-item-style {
+    font-size: 1.1em;
+  }
+
+  div.value-item-style {
+    font-size: 1.9em;
+  }   
+
+  div.datetime-item-style {
+    font-size: 1.0em;
+  }
+
+  div.id-item-style {
+    font-size: 0.7em;
+  } 
+}
+
