@@ -1,4 +1,5 @@
 export const environment = {
+  domain: 'zetaemmesoft.com',
   production: true,
   urlSensorsGet: 'https://zetaemmesoft.com/monitor/rest/sensor/get',
   urlSensorGet: 'https://zetaemmesoft.com/monitor/rest/sensor/id/get',  
@@ -8,10 +9,3 @@ export const environment = {
   urlOauthToken: 'https://zetaemmesoft.com/auth/oauth/token',
   urlUsersGet: 'https://zetaemmesoft.com/auth/rest/users/get'
 };
-
-
-
-
-
-
-

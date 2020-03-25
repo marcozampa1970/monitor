@@ -5,20 +5,37 @@ import { UserService } from "../services/user.service";
 import { HttpParams, HttpErrorResponse } from "@angular/common/http";
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from "ngx-cookie-service";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ UserService ]
+  providers: [UserService]
 })
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   invalidLogin: boolean;
-  private goToView: string;
+  private toView: string;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private userService: UserService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+    console.log("Init login");
+    this.toView = 'home';
+    this.invalidLogin = false;
+    this.route.params.subscribe(param => {
+      console.log("from: " + param.fromview);
+      this.toView = param.fromview;
+    });
+
+    this.cookieService.deleteAll('/', environment.domain);
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required])],
+      password: ['', Validators.required]
+    });
+  }
 
   onSubmit() {
     if (this.loginForm.invalid) {
@@ -30,8 +47,8 @@ export class LoginComponent implements OnInit {
       .set('grant_type', 'password');
 
     this.userService.login(body.toString()).subscribe(data => {
-      this.cookieService.set('token', JSON.stringify(data));
-      this.router.navigate([this.goToView]);
+      this.cookieService.set('token', JSON.stringify(data), 5, '/', environment.domain, true); 
+      this.router.navigate([this.toView]);
     }, httpError => {
 
       if (httpError instanceof HttpErrorResponse) {
@@ -42,20 +59,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    console.log("Init login");    
-    this.goToView = 'home';
-    this.invalidLogin = false;
-    this.route.params.subscribe(param => {
-      console.log("from: " + param.fromview);
-      this.goToView = param.fromview;
-    });
 
-    this.cookieService.delete('token');
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.required]
-    });
-  }
 
 }

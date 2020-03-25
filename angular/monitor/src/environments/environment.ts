@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  domain: 'localhost',
   production: false,
   urlSensorsGet: 'https://localhost/monitor/rest/sensor/get',
   urlSensorGet: 'https://localhost/monitor/rest/sensor/id/get',  
