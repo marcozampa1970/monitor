@@ -3,13 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  domain: 'localhost',
+  domain: '192.168.1.101',
   production: false,
-  urlSensorsGet: 'https://localhost/monitor/rest/sensor/get',
-  urlSensorGet: 'https://localhost/monitor/rest/sensor/id/get',  
-  urlSwitchesGet: 'https://localhost/monitor/rest/switch/get',  
-  urlSwitchGet: 'https://localhost/monitor/rest/switch/id/get',
-  urlSwitchSet: 'https://localhost/monitor/rest/switch/set',
-  urlOauthToken: 'https://localhost/auth/oauth/token',
-  urlUsersGet: 'https://localhost/auth/rest/users/get'
+  urlSensorsGet: 'https://192.168.1.101/monitor/rest/sensor/get',
+  urlSensorGet: 'https://192.168.1.101/monitor/rest/sensor/id/get',  
+  urlSwitchesGet: 'https://192.168.1.101/monitor/rest/switch/get',  
+  urlSwitchGet: 'https://192.168.1.101/monitor/rest/switch/id/get',
+  urlSwitchSet: 'https://192.168.1.101/monitor/rest/switch/set',
+  urlOauthToken: 'https://192.168.1.101/auth/oauth/token',
+  urlUsersGet: 'https://192.168.1.101/auth/rest/users/get'
 };

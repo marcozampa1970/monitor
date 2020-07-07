@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from "@angular/router";
 import { Sensor } from '../model/sensor.model';
 import { CookieService } from "ngx-cookie-service";
-
 import { Subscription, timer } from 'rxjs';
 import { MonitorService } from '../services/monitor.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-sensorlist',
@@ -29,12 +29,10 @@ export class SensorListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log("sensors");
-    this.errorMsg = null;
     if (!this.cookieService.get('token')) {
       this.router.navigate(['login', 'sensors']);
       return;
     }
-
     this.startTimer();
   }
 
@@ -84,9 +82,11 @@ export class SensorListComponent implements OnInit, OnDestroy {
             });
           }        
         }, error => {
-          this.stopTimer();
-          this.errorMsg = error.error.error_description;
+          this.stopTimer();  
           console.log(error, 'error');
+          if (error.error.error == "invalid_token") {
+            this.logout();
+          }
         });
       }, error => {
         console.log(error, 'error');
@@ -109,5 +109,11 @@ export class SensorListComponent implements OnInit, OnDestroy {
     } else {
       this.stopTimer();
     }
+  }
+
+  logout() {
+    console.log("logout");
+    this.cookieService.deleteAll('/', environment.domain);
+    this.router.navigate(['/home']);
   }
 }
