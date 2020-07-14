@@ -11,7 +11,6 @@ export class SwitchItemComponent implements OnInit {
 
   @Input() switch: Switch;
 
-  switchR: Switch;
   switchValue: boolean = false;
 
   constructor(private dataService: MonitorService) { }
@@ -24,7 +23,7 @@ export class SwitchItemComponent implements OnInit {
     }
   }
 
-  onChange(evt) {  
+  onChange(evt) {
     if (evt) {
       this.setSwitch(this.switch.id, 1.0, this.switch.unit, this.switch.type, this.switch.name, this.switch.node);
     } else {
@@ -32,24 +31,27 @@ export class SwitchItemComponent implements OnInit {
     }
   }
 
-  private getSwitch(id: number) {
-    try {
-      this.dataService.getSwitch(id).subscribe(data => {
-        this.switchR = data;
-      }, error => { console.log(error, 'error'); });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   private setSwitch(id: number, value: number, unit: string, type: string, name: string, node: string) {
     try {
       this.dataService.setSwitch(id, value, unit, type, name, node).subscribe(data => {
-        this.switchR = data;
+      }, error => { console.log(error, 'error'); });
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
+      this.dataService.getSwitch(id).subscribe(data => {
+        console.log('new value: ' + data.value);
+
+        if (data.value == 0) {
+          this.switchValue = false;
+        } else if (data.value == 1) {
+          this.switchValue = true;
+        }
+
       }, error => { console.log(error, 'error'); });
     } catch (e) {
       console.log(e);
     }
   }
-
 }
