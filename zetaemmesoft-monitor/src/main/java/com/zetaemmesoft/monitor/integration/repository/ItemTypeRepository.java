@@ -22,7 +22,7 @@ public class ItemTypeRepository {
     public ItemType find(String name) {
 	ItemType dto = null;
 
-	String sql = "SELECT ID, NAME FROM ITEM_TYPE WHERE UPPER(NAME) = UPPER(:name)";
+	String sql = "SELECT ID, NAME FROM MONITOR.ITEM_TYPE WHERE UPPER(NAME) = UPPER(:name)";
 
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("name", name);
@@ -39,7 +39,7 @@ public class ItemTypeRepository {
     public ItemType find(int id) {
 	ItemType dto = null;
 
-	String sql = "SELECT ID, NAME FROM ITEM_TYPE WHERE ID = :id";
+	String sql = "SELECT ID, NAME FROM MONITOR.ITEM_TYPE WHERE ID = :id";
 
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("id", id);

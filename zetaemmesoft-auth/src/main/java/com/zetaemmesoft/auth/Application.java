@@ -1,7 +1,5 @@
 package com.zetaemmesoft.auth;
 
-import java.sql.SQLException;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
@@ -17,7 +15,7 @@ public class Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
-    private static org.h2.tools.Server server;
+    // private static org.h2.tools.Server server;
 
     @Value("${jdbc.port}")
     private String jdbcPort;
@@ -30,19 +28,20 @@ public class Application {
     public void init() {
 	logger.debug("init");
 
+	/*
 	try {
 	    server = org.h2.tools.Server.createTcpServer("-tcpPort", jdbcPort);
 	    server.start();
 
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());
-	}
+	}*/
 
     }
 
     @PreDestroy
     public void stop() {
 	logger.debug("stop");
-	server.stop();
+	//server.stop();
     }
 }

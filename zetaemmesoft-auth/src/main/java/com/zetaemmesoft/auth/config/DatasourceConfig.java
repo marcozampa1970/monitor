@@ -9,12 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -53,10 +50,11 @@ public class DatasourceConfig {
 
 	ds.setDriverClass(driverClass);
 
+	/*
 	ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
 	resourceDatabasePopulator.addScript(new ClassPathResource("db-schema.sql"));
 	resourceDatabasePopulator.addScript(new ClassPathResource("db-data.sql"));
-	DatabasePopulatorUtils.execute(resourceDatabasePopulator, ds);
+	DatabasePopulatorUtils.execute(resourceDatabasePopulator, ds);*/
 
 	return ds;
     }

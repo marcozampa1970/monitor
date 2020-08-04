@@ -29,14 +29,14 @@ public class SensorRepository {
 
     public List<Sensor> findAll() {
 	List<Sensor> dtos = new ArrayList<Sensor>();
-	String sql = "SELECT ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE, TOPIC FROM SENSOR ORDER BY NODE ASC, ID ASC";
+	String sql = "SELECT ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE, TOPIC FROM MONITOR.SENSOR ORDER BY NODE ASC, ID ASC";
 	dtos = jdbcTemplate.query(sql, new SensorRowMapper());
 	return dtos;
     }
 
     public Sensor find(Integer sensorId) {
 	Sensor dto = null;
-	String sql = "SELECT ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE, TOPIC FROM SENSOR WHERE ID = ? ORDER BY ID ASC";
+	String sql = "SELECT ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE, TOPIC FROM MONITOR.SENSOR WHERE ID = ? ORDER BY ID ASC";
 
 	try {
 	    dto = jdbcTemplate.queryForObject(sql, new Integer[] { sensorId }, new SensorRowMapper());
@@ -48,7 +48,7 @@ public class SensorRepository {
     }
 
     public void insert(Sensor dto) {
-	String sql = "INSERT INTO SENSOR (ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE) VALUES (:sensorId,:value,:unit,:type,:time,:name,:node)  ";
+	String sql = "INSERT INTO MONITOR.SENSOR (ID, VALUE, UNIT, ITEM_TYPE, TIME, NAME, NODE) VALUES (:sensorId,:value,:unit,:type,:time,:name,:node)  ";
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("sensorId", dto.getId());
 	namedParameters.addValue("value", dto.getValue());
@@ -62,7 +62,7 @@ public class SensorRepository {
     }
 
     public void update(Sensor dto) {
-	String sql = "UPDATE SENSOR SET VALUE=:value, UNIT=:unit, ITEM_TYPE=:type, NAME=:name, NODE=:node, TIME=:time WHERE ID = :sensorId";
+	String sql = "UPDATE MONITOR.SENSOR SET VALUE=:value, UNIT=:unit, ITEM_TYPE=:type, NAME=:name, NODE=:node, TIME=:time WHERE ID = :sensorId";
 
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("sensorId", dto.getId());

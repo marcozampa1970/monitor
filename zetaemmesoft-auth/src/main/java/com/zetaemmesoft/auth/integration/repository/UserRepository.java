@@ -33,7 +33,7 @@ public class UserRepository {
     public User findUser(String username) {
 	User user = null;
 
-	String sql = "SELECT ID, USERNAME, PASSWORD FROM APP_USER WHERE UPPER(USERNAME) = UPPER(:username)";
+	String sql = "SELECT ID, USERNAME, PASSWORD FROM MONITOR.APP_USER WHERE UPPER(USERNAME) = UPPER(:username)";
 
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
 	namedParameters.addValue("username", username);
@@ -53,13 +53,13 @@ public class UserRepository {
 	StringBuilder sb = new StringBuilder();
 
 	sb.append("SELECT r.ID, r.ROLENAME ");
-	sb.append("FROM APP_ROLE r ");
+	sb.append("FROM MONITOR.APP_ROLE r ");
 	sb.append("WHERE r.ID IN ( ");
 	sb.append("SELECT ur.ROLE_ID ");
-	sb.append("FROM APP_USER_ROLE ur ");
+	sb.append("FROM MONITOR.APP_USER_ROLE ur ");
 	sb.append("WHERE ur.USER_ID IN ( ");
 	sb.append("SELECT u.ID ");
-	sb.append("FROM APP_USER u ");
+	sb.append("FROM MONITOR.APP_USER u ");
 	sb.append("WHERE UPPER(u.USERNAME) = UPPER(:username))) ");
 
 	MapSqlParameterSource namedParameters = new MapSqlParameterSource();
@@ -76,7 +76,7 @@ public class UserRepository {
 
     public List<User> findAll() {
 	List<User> users = new ArrayList<User>();
-	String sql = "SELECT ID, USERNAME, PASSWORD FROM PUBLIC.APP_USER ORDER BY USERNAME ASC";
+	String sql = "SELECT ID, USERNAME, PASSWORD FROM MONITOR.APP_USER ORDER BY USERNAME ASC";
 	users = jdbcTemplate.query(sql, new UserRowMapper());
 	return users;
     }
