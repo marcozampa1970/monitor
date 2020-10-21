@@ -49,6 +49,7 @@ public class SensorController {
     @ApiOperation(value = "Set sensor", authorizations = { @Authorization(value = "Bearer") })
     public ResponseEntity<SensorBean> setSensor(@RequestBody SensorBean bean) {
 
+	/*
 	if ("Voltage".equals(bean.getType())) {
 	    if (bean.getValue() < 3.6) {
 		SensorBean s = sensorService.getSensor(bean.getId());
@@ -56,7 +57,7 @@ public class SensorController {
 		    bean.setValue(s.getValue());
 		}
 	    }
-	}
+	}*/
 
 	SensorBean rtn = sensorService.setSensor(bean);
 	return new ResponseEntity<SensorBean>(rtn, HttpStatus.OK);
