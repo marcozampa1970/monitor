@@ -1,11 +1,14 @@
+
+
+
 export const environment = {
-  domain: 'zetaemmesoft.com',
-  production: true,
-  urlSensorsGet: 'https://zetaemmesoft.com/monitor/rest/sensor/get',
-  urlSensorGet: 'https://zetaemmesoft.com/monitor/rest/sensor/id/get',  
-  urlSwitchesGet: 'https://zetaemmesoft.com/monitor/rest/switch/get',  
-  urlSwitchGet: 'https://zetaemmesoft.com/monitor/rest/switch/id/get',
-  urlSwitchSet: 'https://zetaemmesoft.com/monitor/rest/switch/set',
-  urlOauthToken: 'https://zetaemmesoft.com/auth/oauth/token',
-  urlUsersGet: 'https://zetaemmesoft.com/auth/rest/users/get'
+  domain: '15.161.182.66',
+  production: false,
+  urlSensorsGet: 'https://15.161.182.66/monitor/rest/sensor/get',
+  urlSensorGet: 'https://15.161.182.66/monitor/rest/sensor/id/get',  
+  urlSwitchesGet: 'https://15.161.182.66/monitor/rest/switch/get',  
+  urlSwitchGet: 'https://15.161.182.66/monitor/rest/switch/id/get',
+  urlSwitchSet: 'https://15.161.182.66/monitor/rest/switch/set',
+  urlOauthToken: 'https://15.161.182.66/auth/oauth/token',
+  urlUsersGet: 'https://15.161.182.66/auth/rest/users/get'
 };

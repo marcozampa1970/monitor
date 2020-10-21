@@ -13,3 +13,5 @@ export const environment = {
   urlOauthToken: 'https://192.168.1.101/auth/oauth/token',
   urlUsersGet: 'https://192.168.1.101/auth/rest/users/get'
 };
+
+
